@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> Team Work </title>
+	<script>
+            
+    function getText() {
+		var input = document.getElementById("textInput").value;
+    	document.getElementById("output").innerHTML = input;
+}
+    function addNumber() { 
+	let num1 = parseFloat(document.getElementById("numInput1").value);
+	var Total = 0
+   	for (var i=1; i <= num1;  i++) { 
+		Total += i;
+}
+document.getElementById("output").innerHTML = Total;
+}
+    function sumBothNumbers() {
+		let num1 = parseFloat(document.getElementById("numInput1").value);
+		let num2 = parseFloat(document.getElementById("numInput2").value);
+;
+		let compute = num1 + num2;
+		document.getElementById("output").innerHTML= compute;
+				
+}
+
+	function calculator(){
+	let operator = document.getElementById("operator").value;
+	let val1 = parseFloat(document.getElementById("numInput3").value);
+	let val2 = parseFloat(document.getElementById("numInput4").value);
+
+	const add = (val1, val2) => {return (val1 + val2);}
+	let subtract = (val1, val2) => val1 - val2;
+	let multiply = (val1, val2) => val1 * val2;
+	let divide = (val1, val2) => val1 / val2;
+
+			if (operator === "multiply"){
+			document.getElementById("output").innerHTML= multiply(val1, val2);
+			} if (operator === "divide"){
+			document.getElementById("output").innerHTML= divide(val1, val2);
+			} if (operator === "subtract"){
+			document.getElementById("output").innerHTML= subtract(val1, val2);
+			} if (operator === "add"){
+			document.getElementById("output").innerHTML= add(val1, val2);
+			} 
+}
+
+</script>
+</head>
+	
+<body>
+    <h1>Get Text Function</h1>
+	<input id="textInput" type="text"><br>
+	<button onclick="getText()">Load Text</button><br>
+
+	<h1>Add Number Loop Function</h1>
+	<button onClick="addNumber()">Add Number</button>
+
+	<h1>Sum Both Numbers Function</h1>
+	<input id="numInput1" type ="number">
+	<input id="numInput2" type= "number" >
+	<button onclick="sumBothNumbers()">+</button>
+
+    <h1>Strech Goal 1</h1>
+	<select id="operator">
+	  <option value="multiply" >Multiply</option>
+	  <option value="divide">Divide</option>
+	  <option value="subtract">Subtract</option>
+	  <option value="add">Add</option>
+    </select>
+    
+	<input id="numInput3" type ="number">
+	<input id="numInput4" type= "number" >
+	<button onclick="calculator()">Calculate</button>
+
+	<h1>Output Div</h1>
+	<div id="output"><div>
+</body>
+</html>
+
+
+
+
