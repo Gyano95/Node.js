@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <title>Search</title>
+    <link rel="stylesheet" media="screen" href="style/main.css">
+</head>
+
+<body>
+<div>
+    <h3>Search Example</h3>
+    <form name="search" action="/search" id="search">
+        <input name="searchInput" placeholder="What are you looking for?">
+        <button type="submit">Search</button>
+        <button type="reset">Reset</button>
+    </form>
+</div>
+
+    <div>
+        <form method="get" action="thankyou.html"></form>
+        <form id="hero-form">
+            <label for="heroName">Name:
+        <input type="text" id="heroName" name="heroName" autofocus placeholder="Your Super Hero Name" maxlength="32">
+            </label> <br>
+            <label for="donation-amount">Enter amount to donate: 
+                <input type="text" id ="donation-amount" name="donationAmount" value="10">
+            </label> <br>
+            <label for="realName">Real Name:
+                <input type="password" name="realName" id="realName">
+            </label> <br>
+            
+            <label for="City">Base of Operations:
+                <select name="city" id="city">
+                    <option value="" selected>Choose a City</option>
+                    <option value="Metropolis">Metropolis</option>
+                    <option value="Gotham City">Gotham City</option>
+                    <option value="Keystone City">Keystone City</option>
+                    <option value="Coast City">Coast City</option>
+                    <option value="Star City">Star City</option>
+                </select>
+            </label><br>
+
+            <label for="age">Age:
+                <input type="number" id="age" name="age" min="0" step="1">
+            </label><br>
+            <div id="powers">
+
+                <p>Super Powers:</p>
+                <label for="flight">Flight:
+                    <input class="hero-class" type="checkbox" id="flight" value="Flight" name="powers">
+                </label> <br>
+                    
+                <p>Super Strength:
+                    <input type="range" min="1" max="10" value="5" class="slider" id="rating" oninput="adjustRating(this.value)" onchange="adjustRating(this.value)">
+                    <span id="ratingvalue">10</span><br>
+
+                <label for="speed">Super Speed:
+                    <input type="range" min="1" max="10" value="5" class="slider" id="rating" oninput="adjustRating(this.value)" onchange="adjustRating(this.value)">
+                    <span id="ratingvalue">10</span><br>
+
+                <label for="energy">Energy Blasts:
+                    <input class="hero-class" type="checkbox" id="energy" value="Energy Blasts" name="powers">
+                </label><br>
+                <label for="telekinesis">Telekinesis:
+                    <input class="hero-class" type="checkbox" id="telekinesis" value="Telekinesis" name="powers">
+                </label>
+            </div>
+            <div id="char-type">
+                <p>What type of hero are you?</p>
+                <label for="hero">Hero:
+                    <input class="hero-class" type="radio" name="category" value="Hero" id="hero">
+                </label><br>
+                <label for="villain">Villain:
+                    <input class="hero-class" type="radio" name="category" value="Villain" id="villain">
+                </label><br>
+                <label for="anti-hero">Anti-Hero:
+                    <input class="hero-class" type="radio" name="category" value="Antihero" id="anti-hero">
+                </label>
+
+                <label>
+                    <h3>Origin Story</h3>
+                    <textarea rows="4" cols="50"></textarea><br>
+                </label><br>
+            </div>
+            
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+</form>
+    </div>
+
+<script src='script/main.js'></script>
+</body>
+</html>

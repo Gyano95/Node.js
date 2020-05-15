@@ -1,0 +1,128 @@
+Object Literals
+An object in JavaScript is a self-contained set of related values and functions. They act as a collection of named properties that map to any JavaScript value such as strings, numbers, booleans, arrays and functions. If a property’s value is a function, it is known as amethod.
+
+Here is an example of an object literal that describes the Man of Steel:
+
+const superman = {
+    name: 'Superman',
+    'real name': 'Clark Kent',
+    height: 75,
+    weight: 235,
+    hero: true,
+    villain: false,
+    allies: ['Batman','Supergirl','Superboy'],
+    fly() {
+        return 'Up, up and away!';
+    }
+};
+
+Finding all the Properties of an Object
+We can loop through all of an object’s properties and methods by using a for in loop. For example, to log all the properties of the superman object to the console, we could use:
+
+for(const key in superman) {
+    console.log(key + ": " + superman[key]);
+}
+<< "name: Superman"
+<< "real name: Clark Kent"
+<< "height: 75"
+<< "weight: 235"
+<< "hero: true"
+<< "villain: false"
+<< "allies: Batman,Supergirl,Superboy"
+<< "fly: function (){
+    console.log(\"Up, up and away!\");
+}"
+
+The Object.keys() method will return an array of all the keys of any object that is provided as an argument. We can then iterate over this array to access all the keys of an object:
+
+for(const key of Object.keys(superman)) {
+    console.log(key);
+
+ES2017 also adds some the Object.values() that works in the same way, but returns an array of all the object's value:
+
+for(const value of Object.values(superman)) {
+    console.log(value);
+}
+
+ Object.entries() is also part of ES2017 and returns an array of key-value pairs. These key-value pairs are returned in arrays, but they can be destructured and accessed individually using the following notation:
+
+for(const [key,value] of Object.entries(superman)) {
+    console.log(`${key}: ${value}`);
+
+
+The following example shows how this can be done using a function called greet() .
+ This accepts three parameters:
+
+function greet({greeting,name,age}) {
+    return `${greeting}! My name is ${name} and I am ${age} years old.`;
+}
+
+greet({ greeting: `What's up dude`, age: 10, name: `Bart` });
+<< 'What\'s up dude! My name is Bart and I am 10 years old.'
+
+A Practical Example
+If we were looking for PDF files and had a list of filenames, this regular expression could be used to find them (assuming they have a .pdf extension, of course):
+
+const pdf = /.*\.pdf$/;
+This looks for zero or more occurrences of any character, followed by an escaped period, followed by the letters " pdf " that must come at the end of the string:
+
+pdf.test('chapter5.pdf');
+<< true
+pdf.test('report.doc');
+<< false
+
+
+
+
+
+
+
+
+
+
+
+
+Learning about forms.
+
+How to use the form reset:
+The form.reset() method will reset all the form controls back to their initial values specified in the HTML.
+
+Possibly the most important form event is the submit event, occurring when the form is submitted. Usually this will send the content of the form to the server to be processed:
+
+Form Submission:
+const form = document.forms['search'];
+form.addEventListener ('submit', search, false);
+function search() {
+    alert(' Form Submitted');
+}
+
+retrieving and changing value from form.
+
+function search9event) {
+alert('you searched for :{inpute.value}'}
+event.preventDefault();
+
+Example of radio button fields:
+<p>What type of hero are you?</p>
+<label for='hero'>Hero:
+    <input type='radio' name='category' value='Hero' id='hero'>
+</label>
+<label for='villain'>Villain:
+    <input type='radio' name='category' value='Villain' id='villain'>
+</label>
+<label for='anti-hero'>Anti-Hero:
+    <input type='radio' name='category' value='Antihero' id='anti-hero'>
+</label>
+
+Selecting from drop down list example:
+This function awaken me of ordered and unordered list, such similar to the HTML
+<label for='City'>Base of Operations:
+    <select name='city' id='city'>
+        <option value='' selected>Choose a City</option>
+        <option value='Metropolis'>Metropolis</option>
+        <option value='Gotham City'>Gotham City</option>
+        <option value='Keystone City'>Keystone City</option>
+        <option value='Coast City'>Coast City</option>
+        <option value='Star City'>Star City</option>
+    </select>
+</label>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+  <title>Customers</title>
+  <link rel="stylesheet" media="screen" href="style/main.css">
+  <script>
+  	function addAndSaveCustomer(){
+  		var aName = document.getElementById("name_input").value
+  		var anAge = document.getElementById("age_input").value * 1
+  		var anInseam = document.getElementById("inseam_input").value * 1
+  		var aClothingCustomer = {
+  			"name":aName,
+  			"age":anAge,
+  			"inseam":anInseam
+  		}
+  		var allCustomers = null
+		var storedCustomersString = localStorage["all_customers"]
+		if(storedCustomersString == null){
+			allCustomers = []
+		}
+		else{
+			allCustomers = JSON.parse(storedCustomersString)
+		}
+		allCustomers.push(aClothingCustomer)
+		var allCusomersString = JSON.stringify(allCustomers)
+		localStorage["all_customers"] = allCusomersString
+		showAllCustomers()
+
+		document.getElementById("name_input").value = null
+		document.getElementById("age_input").value  = null
+		document.getElementById("inseam_input").value = null
+  	}
+  	function showAllCustomers(){
+  		var storedCustomersString = localStorage["all_customers"]
+		if(storedCustomersString != null){
+			var allCustomers = JSON.parse(storedCustomersString)
+			var customerDisplayer = document.getElementById("all_customers_display")
+	  		customerDisplayer.innerHTML = null
+	  		var numberOfCustomers = allCustomers.length
+	  		for (var i = 0; i < allCustomers.length; i++) {
+	  			var aClothingCustomer = allCustomers[i]
+	  			customerDisplayer.innerHTML += "<hr><p>Customer: "+ aClothingCustomer["name"] +"</p>"+"<p>Age: "+ aClothingCustomer["age"] +"</p>"+"<p>Inseam: "+ aClothingCustomer["inseam"] +"</p>"
+	  		}
+		}
+  	}
+  </script>
+
+  <style>
+
+  	h1{
+  		text-align: center;
+  	}
+  	body{
+  		background-color: LightGrey;
+  	}
+  	input{
+  		margin-top: 5px;
+		border:none; 
+		border-radius:5px; 
+		box-shadow:0px 0px 5px #666666 inset; 
+		height:25px;
+		width:200px; 
+		text-indent:5px; 
+	} 
+	input:focus { 
+		outline:none;
+  	}
+  	textarea{
+		margin-top: 10px;
+		border:none; 
+		border-radius:5px; 
+		box-shadow:0px 0px 5px #666666 inset;
+		width:90%;
+		height: 150px; 
+		text-indent:5px; 
+  		resize:none;
+  		overflow: scroll;
+  	}
+  	#customer_entry_area{
+  		width: 500px;
+  		padding-left: 5px;
+		border:none; 
+		border-radius:5px; 
+		box-shadow:0px 0px 5px #666666 inset; 
+		text-indent:5px; 
+  	}
+  	img{
+  		margin-top: 5px;
+  		margin-bottom: 5px;
+		border:none; 
+		border-radius:5px; 
+		box-shadow:0px 0px 5px #666666;
+	} 
+  </style>
+</head>
+
+<body onload="showAllCustomers()">
+	<section id="customer_entry_area">
+		<h1>Our Clothing Customers</h1>
+		<input id="name_input" placeholder="Name"></input>
+		<input id="age_input" placeholder="Age"></input>
+		<input id="inseam_input" placeholder="Inseam"></input>
+		<br>
+		<img src="add_customer.png" onclick="addAndSaveCustomer()"></img>
+	</section>
+    <section id="all_customers_display"></section>
+<div>
+    Week 04 reading atached here:
+    <wee-04-reading class="txt">
+</div>
+
+
+    <div>
+        <h3>Search Example</h3>
+        <form name="search" action="/search" id="search">
+            <input name="searchInput" placeholder="What are you looking for?">
+            <button type="submit">Search</button>
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+    
+        <div>
+            <form method="get" action="thankyou.html"></form>
+            <form id="hero-form">
+                <label for="heroName">Name:
+            <input type="text" id="heroName" name="heroName" autofocus placeholder="Your Super Hero Name" maxlength="32">
+                </label> <br>
+                <label for="donation-amount">Enter amount to donate: 
+                    <input type="text" id ="donation-amount" name="donationAmount" value="10">
+                </label> <br>
+                <label for="realName">Real Name:
+                    <input type="password" name="realName" id="realName">
+                </label> <br>
+                
+                <label for="City">Base of Operations:
+                    <select name="city" id="city">
+                        <option value="" selected>Choose a City</option>
+                        <option value="Metropolis">Metropolis</option>
+                        <option value="Gotham City">Gotham City</option>
+                        <option value="Keystone City">Keystone City</option>
+                        <option value="Coast City">Coast City</option>
+                        <option value="Star City">Star City</option>
+                    </select>
+                </label><br>
+    
+                <label for="age">Age:
+                    <input type="number" id="age" name="age" min="0" step="1">
+                </label><br>
+                <div id="powers">
+    
+                    <p>Super Powers:</p>
+                    <label for="flight">Flight:
+                        <input class="hero-class" type="checkbox" id="flight" value="Flight" name="powers">
+                    </label> <br>
+                        
+                    <p>Super Strength:
+                        <input type="range" min="1" max="10" value="5" class="slider" id="rating" oninput="adjustRating(this.value)" onchange="adjustRating(this.value)">
+                        <span id="ratingvalue">10</span><br>
+    
+                    <label for="speed">Super Speed:
+                        <input type="range" min="1" max="10" value="5" class="slider" id="rating" oninput="adjustRating(this.value)" onchange="adjustRating(this.value)">
+                        <span id="ratingvalue">10</span><br>
+    
+                    <label for="energy">Energy Blasts:
+                        <input class="hero-class" type="checkbox" id="energy" value="Energy Blasts" name="powers">
+                    </label><br>
+                    <label for="telekinesis">Telekinesis:
+                        <input class="hero-class" type="checkbox" id="telekinesis" value="Telekinesis" name="powers">
+                    </label>
+                </div>
+                <div id="char-type">
+                    <p>What type of hero are you?</p>
+                    <label for="hero">Hero:
+                        <input class="hero-class" type="radio" name="category" value="Hero" id="hero">
+                    </label><br>
+                    <label for="villain">Villain:
+                        <input class="hero-class" type="radio" name="category" value="Villain" id="villain">
+                    </label><br>
+                    <label for="anti-hero">Anti-Hero:
+                        <input class="hero-class" type="radio" name="category" value="Antihero" id="anti-hero">
+                    </label>
+    
+                    <label>
+                        <h3>Origin Story</h3>
+                        <textarea rows="4" cols="50"></textarea><br>
+                    </label><br>
+                </div>
+                
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+    </form>
+        </div>
+        <script src='script/main.js'></script>
+</body>
+</html>
+
