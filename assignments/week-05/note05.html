@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+  <title>Customers</title>
+  <link rel="stylesheet" media="screen" href="style/main.css">
+  <script>
+  
+  </script>
+ 
+  <style>
+      body {
+      background-color: lightblue;
+      text-align: center;
+      font-size: 20px;
+      }
+
+  </style>
+
+</head>
+<body> <header> 
+        <h3> Warning </h3>
+       </header>
+       <div>
+           <p> A warning can occur if there’s an error in the code that isn't enough to cause the program to crash.<br>
+              This means the program will continue to run after a warning.<br>
+              Code example
+              pi = 3.142;
+              << JavaScript Warning: assignment to undeclared variable</p>
+       </div>
+
+       <header> 
+        <h3> Script Mode </h3>
+       </header>
+       <div>
+        'use strict'; <br>
+       Assigning a value to variable that is uncleared in strict mode would result in excemption:<br>
+       'use strict'; <br>
+        e = 2.718; <br>
+        << ReferenceError: e is not defined 
+       <p>Strict Mode cal also be apply to anything inside a fuction; <br>
+        Example: function strictly(){ <br>
+        'use strict'; <br>
+        // function code goes here <br>
+        <strong>Note:</strong>Recommended way of using a strict mode is to place all codes <br>
+        into a self-invoking function example below: <br>
+        <p>(function() {
+             'use strict';
+         // All code goes inside this function
+          }());
+        </div>
+
+        <header> 
+            <h3>Browser Detection </h3>
+        </header>
+        <div>
+            <p>Browser detection witH 'if' holodeDeck API by wrapping any function call inside inside 'if' block:<br>
+                if (window.holoDeck) { <br>
+                    virtualReality.activate();
+                } </p>
+        </div>
+
+        <header> 
+            <h3> Alert Funtion </h3>
+        </header>
+        <div>
+            <p>Example of alert function that it allows us to effectively put breakpoints in the <br>
+                code that let us check the value of variables at that point to see if they’re what we expect them to be.<br></p>
+            <p>function amIOldEnough(age){ <br>
+                if (age = 12) { <br>
+                    alert(age); <br>
+                    return 'No, sorry.'; <br>
+                } else if (age < 18) { </18> <br>
+                    return 'Only if you are accompanied by an adult.'; <br>
+                } <br>
+                else {    <brt></brt>
+                    return 'Yep, come on in!'; <br>
+                }
+            }
+
+
+            </p>    
+        </div>
+    <header> 
+        <h3> Debugger Command Example </h3>
+    </header>
+    <div>
+        <img src="images/debugger.jpg" alt="Degugger">
+    </div> 
+    
+    <header> 
+        <h3> Stack Trace Example </h3>
+    </header>
+    <img src="images/stack-traces.jpg" alt=" Stack Traces">
+    <p>An exception will also produce astack trace. This is a sequence of functions or <br>
+       method calls that lead to the point where the error occurred. It’s often not just <br>
+       a single function or method call that causes an error. A stack trace will work <br>
+       backwards from the point at which the error occurred to identify the original function <br>
+       or method that started the sequence. The example below shows how a stack trace can help you <br>
+       find where an error originates from: <br></p>
+
+      <p> In this example, we have three functions: function one() invokes function two() , <br>
+which then invokes function three() . Function three() then invokes the unicorn() <br>
+function that doesn't exist and causes an error. We can use the stack trace to work <br>
+backwards and see that this error was caused by invoking the function one() in the first place.
+</p>
+
+<header> 
+    <h3>Try, Catch and Block / Erroe Property </h3>
+</header>
+    <div>
+        <p>Error property that are safe to use are : <br>
+            The name property returns the name of the error constructor function used as a string, <br>
+            such as 'Error' or 'ReferenceError'.<br>
+            The message property returns a description of the error and should be provided as an <br>
+            argument to the Error constructor function.<br>
+            The stack property will return a stack trace for that error. This is a non-standard <br>
+            property and it’s recommended that it is not safe to use in production sites.<br>
+        </p>
+    </div>
+
+    <header> 
+        <h3>Jest Test</h3>
+    </header>
+    <img src="images/jest-test.jpg" alt="Jest">
+    
+
+    <script src="note.js"></script> 
+    <script src="squareRoot.test.js"></script>
+    <script src="numberCruncher.test.js"></script>
+    
+
+</body>
+</html>
+
